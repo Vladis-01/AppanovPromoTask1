@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
-public class MyList<T> implements List<T> {
+public class MyList<T> implements List<T>, AuthorHolder {
     private static final int DEFAULT_CAPACITY = 10;
     private static final int CUT = 3;
     private int size;
@@ -274,6 +274,11 @@ public class MyList<T> implements List<T> {
         Object[] newArray = new Object[size];
         System.arraycopy(elementData, 0, newArray, 0, size);
         return Arrays.toString(newArray);
+    }
+
+    @Override
+    public String getAuthor() {
+        return "Аппанов В. С.";
     }
 
 
