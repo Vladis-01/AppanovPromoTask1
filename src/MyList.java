@@ -372,7 +372,7 @@ public class MyList<T> implements List<T>, AuthorHolder {
         public static <T> void sort(T[] a, Comparator<? super T> c) {
             @SuppressWarnings("unchecked")
             T[] helper = (T[]) Array.newInstance(a[0].getClass(), a.length);
-            ForkJoinPool forkJoinPool = new ForkJoinPool(4);
+            ForkJoinPool forkJoinPool = new ForkJoinPool(6);
 
             forkJoinPool.invoke(new MergeSortTask<T>(a, helper, 0, a.length - 1, c));
 
