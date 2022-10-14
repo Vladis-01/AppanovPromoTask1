@@ -359,7 +359,11 @@ public class MyList<T> implements List<T>, AuthorHolder {
                 System.arraycopy(elementData, 0, newArray, 0, size);
                 elementData = newArray;
             }
-            elementData[size] = t;
+            System.arraycopy(elementData, current, elementData, current+1, size-current);
+            elementData[current] = t;
+            lastIndex = current;
+            current++;
+
             size++;
         }
     }
